@@ -67,7 +67,7 @@ typedef struct {
     int16_t position;
     int16_t radius;
     int16_t speed;
-    int88_t direction;
+    int8_t direction;
     uint8_t green;
     uint8_t red;
     uint8_t blue;
@@ -128,14 +128,14 @@ void main(void) {
         } while (--m_milli_sec_time);
 
 
-        for (ix = Ball_1.position - Ball_1.radius; ix < Ball_1.position + Ball_1.radius; ix++) {
-            if (ix > 0 && ix < 0 = LED_MAX_CNT) {
-                uint8_t shift = abs(ix - Ball_1.position);
-                Stripe.Led[ix][L_GREEN] = Ball_1.green >> shift;
-                Stripe.Led[ix][L_RED] = Ball_1.red >> shift;
-                Stripe.Led[ix][L_BLUE] = Ball_1.blue >> shift;
-            }
-        }
+//        for (ix = Ball_1.position - Ball_1.radius; ix < Ball_1.position + Ball_1.radius; ix++) {
+//            if (ix > 0 && ix < 0 = LED_MAX_CNT) {
+//                int8_t shift = abs(ix - Ball_1.position);
+//                Stripe.Led[ix][L_GREEN] = Ball_1.green >> shift;
+//                Stripe.Led[ix][L_RED] = Ball_1.red >> shift;
+//                Stripe.Led[ix][L_BLUE] = Ball_1.blue >> shift;
+//            }
+//        }
 
         int_state = 0;
         DMA1CON0bits.EN = 0;

@@ -30,11 +30,11 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"78 C:\work\moving\ws_leds.X\main.c
+"78 C:\work\ws_leds\main.c
 [v _main main `(v  1 e 1 0 ]
-"58 C:\work\moving\ws_leds.X\mcc_generated_files/clc2.c
+"58 C:\work\ws_leds\mcc_generated_files/clc2.c
 [v _CLC2_Initialize CLC2_Initialize `(v  1 e 1 0 ]
-"87 C:\work\moving\ws_leds.X\mcc_generated_files/dma1.c
+"87 C:\work\ws_leds\mcc_generated_files/dma1.c
 [v _DMA1_Initialize DMA1_Initialize `(v  1 e 1 0 ]
 "246
 [v _DMA1_DMASCNTI_ISR DMA1_DMASCNTI_ISR `(v  1 e 1 0 ]
@@ -42,11 +42,11 @@
 [v _DMA1_SetSCNTIInterruptHandler DMA1_SetSCNTIInterruptHandler `(v  1 e 1 0 ]
 "260
 [v _DMA1_DefaultInterruptHandler DMA1_DefaultInterruptHandler `(v  1 e 1 0 ]
-"53 C:\work\moving\ws_leds.X\mcc_generated_files/interrupt_manager.c
+"53 C:\work\ws_leds\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 "59
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
-"50 C:\work\moving\ws_leds.X\mcc_generated_files/mcc.c
+"50 C:\work\ws_leds\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 "65
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
@@ -54,15 +54,15 @@
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 "100
 [v _SystemArbiter_Initialize SystemArbiter_Initialize `(v  1 e 1 0 ]
-"55 C:\work\moving\ws_leds.X\mcc_generated_files/pin_manager.c
+"55 C:\work\ws_leds\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"58 C:\work\moving\ws_leds.X\mcc_generated_files/pwm5.c
+"58 C:\work\ws_leds\mcc_generated_files/pwm5.c
 [v _PWM5_Initialize PWM5_Initialize `(v  1 e 1 0 ]
-"64 C:\work\moving\ws_leds.X\mcc_generated_files/spi1.c
+"64 C:\work\ws_leds\mcc_generated_files/spi1.c
 [v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
-"60 C:\work\moving\ws_leds.X\mcc_generated_files/tmr0.c
+"60 C:\work\ws_leds\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
-"62 C:\work\moving\ws_leds.X\mcc_generated_files/tmr2.c
+"62 C:\work\ws_leds\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 "157
 [v _TMR2_HasOverflowOccured TMR2_HasOverflowOccured `(a  1 e 1 0 ]
@@ -445,23 +445,26 @@
 "46522
 "46522
 [v _INTCON0bits INTCON0bits `VES550  1 e 1 @16338 ]
-[u S148 . 720 `[240][3]uc 1 Frame 720 0 ]
-"49 C:\work\moving\ws_leds.X\main.c
-[v _MyPixelArray MyPixelArray `S148  1 e 720 0 ]
+[u S148 . 720 `[240][3]uc 1 Led 720 0 ]
+"49 C:\work\ws_leds\main.c
+[v _Stripe Stripe `S148  1 e 720 0 ]
 "51
 [v _m_milli_sec_time m_milli_sec_time `ul  1 e 4 0 ]
 "54
 [v _int_state int_state `uc  1 e 1 0 ]
-"81 C:\work\moving\ws_leds.X\mcc_generated_files/dma1.c
+[s S609 . 10 `s 1 position 2 0 `s 1 radius 2 2 `s 1 speed 2 4 `c 1 direction 1 6 `uc 1 green 1 7 `uc 1 red 1 8 `uc 1 blue 1 9 ]
+"76
+[v _Ball_1 Ball_1 `S609  1 e 10 0 ]
+"81 C:\work\ws_leds\mcc_generated_files/dma1.c
 [v _DMA1_SCNTI_InterruptHandler DMA1_SCNTI_InterruptHandler `*.37(v  1 e 2 0 ]
-"78 C:\work\moving\ws_leds.X\main.c
+"78 C:\work\ws_leds\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"114
+"124
 [v main@m_calib_milli_sec m_calib_milli_sec `us  1 a 2 21 ]
 "79
 [v main@ix ix `s  1 a 2 23 ]
-"132
+"149
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -473,64 +476,64 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 16 ]
 "53
 } 0
-"157 C:\work\moving\ws_leds.X\mcc_generated_files/tmr2.c
+"157 C:\work\ws_leds\mcc_generated_files/tmr2.c
 [v _TMR2_HasOverflowOccured TMR2_HasOverflowOccured `(a  1 e 1 0 ]
 {
 "160
 [v TMR2_HasOverflowOccured@status status `a  1 a 1 14 ]
 "167
 } 0
-"50 C:\work\moving\ws_leds.X\mcc_generated_files/mcc.c
+"50 C:\work\ws_leds\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
 "63
 } 0
-"62 C:\work\moving\ws_leds.X\mcc_generated_files/tmr2.c
+"62 C:\work\ws_leds\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 {
 "86
 } 0
-"60 C:\work\moving\ws_leds.X\mcc_generated_files/tmr0.c
+"60 C:\work\ws_leds\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
 {
 "78
 } 0
-"100 C:\work\moving\ws_leds.X\mcc_generated_files/mcc.c
+"100 C:\work\ws_leds\mcc_generated_files/mcc.c
 [v _SystemArbiter_Initialize SystemArbiter_Initialize `(v  1 e 1 0 ]
 {
 "106
 } 0
-"64 C:\work\moving\ws_leds.X\mcc_generated_files/spi1.c
+"64 C:\work\ws_leds\mcc_generated_files/spi1.c
 [v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
 {
 "77
 } 0
-"58 C:\work\moving\ws_leds.X\mcc_generated_files/pwm5.c
+"58 C:\work\ws_leds\mcc_generated_files/pwm5.c
 [v _PWM5_Initialize PWM5_Initialize `(v  1 e 1 0 ]
 {
 "72
 } 0
-"79 C:\work\moving\ws_leds.X\mcc_generated_files/mcc.c
+"79 C:\work\ws_leds\mcc_generated_files/mcc.c
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 {
 "97
 } 0
-"55 C:\work\moving\ws_leds.X\mcc_generated_files/pin_manager.c
+"55 C:\work\ws_leds\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "142
 } 0
-"65 C:\work\moving\ws_leds.X\mcc_generated_files/mcc.c
+"65 C:\work\ws_leds\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
 "77
 } 0
-"53 C:\work\moving\ws_leds.X\mcc_generated_files/interrupt_manager.c
+"53 C:\work\ws_leds\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 {
 "57
 } 0
-"87 C:\work\moving\ws_leds.X\mcc_generated_files/dma1.c
+"87 C:\work\ws_leds\mcc_generated_files/dma1.c
 [v _DMA1_Initialize DMA1_Initialize `(v  1 e 1 0 ]
 {
 "182
@@ -541,17 +544,17 @@
 [v DMA1_SetSCNTIInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 14 ]
 "256
 } 0
-"58 C:\work\moving\ws_leds.X\mcc_generated_files/clc2.c
+"58 C:\work\ws_leds\mcc_generated_files/clc2.c
 [v _CLC2_Initialize CLC2_Initialize `(v  1 e 1 0 ]
 {
 "83
 } 0
-"59 C:\work\moving\ws_leds.X\mcc_generated_files/interrupt_manager.c
+"59 C:\work\ws_leds\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
 {
 "70
 } 0
-"246 C:\work\moving\ws_leds.X\mcc_generated_files/dma1.c
+"246 C:\work\ws_leds\mcc_generated_files/dma1.c
 [v _DMA1_DMASCNTI_ISR DMA1_DMASCNTI_ISR `(v  1 e 1 0 ]
 {
 "252

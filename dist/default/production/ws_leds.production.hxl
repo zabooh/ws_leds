@@ -1,33 +1,33 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- dist/default/production\ws_leds.X.production.hex
- -Odist/default/production\ws_leds.X.production.hex
- -logfile=dist/default/production\ws_leds.X.production.hxl
+ dist/default/production\ws_leds.production.hex
+ -Odist/default/production\ws_leds.production.hex
+ -logfile=dist/default/production\ws_leds.production.hxl
  -addressing=1
  -break=300000
 
 ### Memory Usage ###
  Intel Hex-file ranges:
-  0h - 3h		(dist/default/production\ws_leds.X.production.hex)
-  8h - Bh		(dist/default/production\ws_leds.X.production.hex)
-  18h - 1Dh		(dist/default/production\ws_leds.X.production.hex)
-  1000h - 1006h		(dist/default/production\ws_leds.X.production.hex)
-  1008h - 15CFh		(dist/default/production\ws_leds.X.production.hex)
-  200000h - 20000Fh		(dist/default/production\ws_leds.X.production.hex)
-  300000h - 300009h		(dist/default/production\ws_leds.X.production.hex)
+  0h - 3h		(dist/default/production\ws_leds.production.hex)
+  8h - Bh		(dist/default/production\ws_leds.production.hex)
+  18h - 1Dh		(dist/default/production\ws_leds.production.hex)
+  1000h - 1006h		(dist/default/production\ws_leds.production.hex)
+  1008h - 15F7h		(dist/default/production\ws_leds.production.hex)
+  200000h - 20000Fh		(dist/default/production\ws_leds.production.hex)
+  300000h - 300009h		(dist/default/production\ws_leds.production.hex)
  Unused ranges:
   4h - 7h
   Ch - 17h
   1Eh - FFFh
   1007h - 1007h
-  15D0h - 1FFFFFh
+  15F8h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Intel Hex-file         (dist/default/production\ws_leds.X.production.hex)
+  H1 = Intel Hex-file         (dist/default/production\ws_leds.production.hex)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -127,6 +127,9 @@
 000015A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000015B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000015C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000015D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000015E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000015F0 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
