@@ -1,0 +1,1 @@
+copy .\dist\default\production\ws_leds.X.production.hex  e:
