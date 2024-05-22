@@ -51,7 +51,7 @@ FRAME_BUF Stripe;
 uint32_t m_milli_sec_time = 0;
 uint32_t m_milli_sec_count = 0;
 
-uint8_t int_state = 0;
+volatile uint8_t int_state = 0;
 
 uint8_t l_green = 0;
 uint8_t l_red = 0;
@@ -65,8 +65,10 @@ void SetColor(uint8_t green, uint8_t red, uint8_t blue);
 
 typedef struct {
     int16_t position;
+    int16_t position_old;
     int16_t radius;
     int16_t speed;
+    int8_t decimate;
     int8_t direction;
     uint8_t green;
     uint8_t red;
@@ -74,6 +76,8 @@ typedef struct {
 } BALL;
 
 BALL Ball_1;
+BALL Ball_2;
+BALL Ball_3;
 
 void main(void) {
     int16_t ix;
@@ -95,9 +99,9 @@ void main(void) {
 
     /* clear the entire RGB matrix */
     for (ix = 0; ix < LED_MAX_CNT; ix++) {
-        Stripe.Led[ix][0] = 0;
-        Stripe.Led[ix][1] = 0;
-        Stripe.Led[ix][2] = 0;
+        Stripe.Led[ix][L_BLUE] = 0;
+        Stripe.Led[ix][L_GREEN] = 0;
+        Stripe.Led[ix][L_RED] = 0;
     }
     /* Trigger the SPI to start DMA */
     SPI1INTFbits.SPI1TXUIF = 1;
@@ -106,20 +110,43 @@ void main(void) {
     TRISCbits.TRISC1 = 0;
     m_milli_sec_time = 0;
 
-    Ball_1.position = 0;
-    Ball_1.blue = 5;
+    Ball_1.position = 10;
+    Ball_1.position_old = 0;
+    Ball_1.blue = 50;
     Ball_1.green = 0;
     Ball_1.red = 0;
     Ball_1.radius = 5;
-    Ball_1.speed = 2;
+    Ball_1.speed = 1;
+    Ball_1.decimate = 0;
     Ball_1.direction = 1;
 
 
+    Ball_2.position = 50;
+    Ball_2.position_old = 40;
+    Ball_2.blue = 00;
+    Ball_2.green = 50;
+    Ball_2.red = 0;
+    Ball_2.radius = 5;
+    Ball_2.speed = 2;
+    Ball_2.decimate = 0;
+    Ball_2.direction = 1;
+
+
+    Ball_3.position = 100;
+    Ball_3.position_old = 80;
+    Ball_3.blue = 00;
+    Ball_3.green = 00;
+    Ball_3.red = 50;
+    Ball_3.radius = 5;
+    Ball_3.speed = 3;
+    Ball_3.decimate = 0;
+    Ball_3.direction = 1;
 
     ix = 1;
     while (1) {
 
-        m_milli_sec_time = 75;
+        /*=== wait ===*/
+        m_milli_sec_time = 50;
         do {
             uint16_t m_calib_milli_sec = 443;
             do {
@@ -127,16 +154,40 @@ void main(void) {
             } while (--m_calib_milli_sec);
         } while (--m_milli_sec_time);
 
+        /*=== Paint ===*/
+        Stripe.Led[Ball_1.position_old][L_BLUE] = 0;
+        Stripe.Led[Ball_1.position][L_BLUE] = Ball_1.blue;
 
-//        for (ix = Ball_1.position - Ball_1.radius; ix < Ball_1.position + Ball_1.radius; ix++) {
-//            if (ix > 0 && ix < 0 = LED_MAX_CNT) {
-//                int8_t shift = abs(ix - Ball_1.position);
-//                Stripe.Led[ix][L_GREEN] = Ball_1.green >> shift;
-//                Stripe.Led[ix][L_RED] = Ball_1.red >> shift;
-//                Stripe.Led[ix][L_BLUE] = Ball_1.blue >> shift;
-//            }
-//        }
+        if (Ball_1.decimate-- == 0) {
+            Ball_1.decimate = Ball_1.speed;
+            Ball_1.position_old += 1;
+            if (Ball_1.position_old >= LED_MAX_CNT) Ball_1.position_old = 0;
+            Ball_1.position += 1;
+            if (Ball_1.position >= LED_MAX_CNT) Ball_1.position = 0;
+        }
 
+
+        Stripe.Led[Ball_2.position_old][L_GREEN] = 0;
+        Stripe.Led[Ball_2.position][L_GREEN] = Ball_2.green;
+        if (Ball_2.decimate-- == 0) {
+            Ball_2.decimate = Ball_2.speed;
+            Ball_2.position_old += 1;
+            if (Ball_2.position_old >= LED_MAX_CNT) Ball_2.position_old = 0;
+            Ball_2.position += 1;
+            if (Ball_2.position >= LED_MAX_CNT) Ball_2.position = 0;
+        }
+
+        Stripe.Led[Ball_3.position_old][L_RED] = 0;
+        Stripe.Led[Ball_3.position][L_RED] = Ball_3.red;
+        if (Ball_3.decimate-- == 0) {
+            Ball_3.decimate = Ball_3.speed;
+            Ball_3.position_old += 1;
+            if (Ball_3.position_old >= LED_MAX_CNT) Ball_3.position_old = 0;
+            Ball_3.position += 1;
+            if (Ball_3.position >= LED_MAX_CNT) Ball_3.position = 0;
+        }
+        
+        /*=== Transport ===*/
         int_state = 0;
         DMA1CON0bits.EN = 0;
         DMA1SSA = ((uint24_t) & Stripe.Led[0][0]);
@@ -148,7 +199,23 @@ void main(void) {
     }
 }
 
+/*
+ 
+         Stripe.Led[Ball_1.position_old][L_GREEN] = 0;
+        Stripe.Led[Ball_1.position_old][L_RED] = 0;
+        Stripe.Led[Ball_1.position_old][L_BLUE] = 0;
+        
+        Stripe.Led[Ball_1.position][L_GREEN] = Ball_1.green;
+        Stripe.Led[Ball_1.position][L_RED] = Ball_1.red;
+        Stripe.Led[Ball_1.position][L_BLUE] = Ball_1.blue;
 
+        Ball_1.position_old+=1;
+        if(Ball_1.position_old == LED_MAX_CNT) Ball_1.position_old = 0;
+        
+        Ball_1.position+=1;
+        if(Ball_1.position == LED_MAX_CNT) Ball_1.position = 0;
+ 
+ */
 /**
 End of File
  */

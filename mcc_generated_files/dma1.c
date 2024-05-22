@@ -255,7 +255,7 @@ void DMA1_SetSCNTIInterruptHandler(void (* InterruptHandler)(void)) {
     DMA1_SCNTI_InterruptHandler = InterruptHandler;
 }
 
-extern uint8_t int_state;
+extern volatile uint8_t int_state;
 
 void DMA1_DefaultInterruptHandler(void) {
     static uint16_t led_index = 0;

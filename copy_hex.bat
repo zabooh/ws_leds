@@ -1,1 +1,1 @@
-copy .\dist\default\production\ws_leds.X.production.hex  e:
+copy .\dist\default\production\ws_leds.production.hex  e:

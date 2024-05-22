@@ -30,7 +30,7 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"78 C:\work\ws_leds\main.c
+"82 C:\work\ws_leds\main.c
 [v _main main `(v  1 e 1 0 ]
 "58 C:\work\ws_leds\mcc_generated_files/clc2.c
 [v _CLC2_Initialize CLC2_Initialize `(v  1 e 1 0 ]
@@ -75,7 +75,7 @@
 `uc 1 SPI1IE 1 0 :1:6 
 `uc 1 I2C1RXIE 1 0 :1:7 
 ]
-"3472 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k42.h
+"3472 C:/Users/m91221/.mchp_packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k42.h
 [u S244 . 1 `S235 1 . 1 0 ]
 [v _PIE2bits PIE2bits `VES244  1 e 1 @14738 ]
 [s S214 . 1 `uc 1 DMA1SCNTIF 1 0 :1:0 
@@ -301,7 +301,7 @@
 [v _SPI1CON2 SPI1CON2 `VEuc  1 e 1 @15638 ]
 "23204
 [v _SPI1BAUD SPI1BAUD `VEuc  1 e 1 @15641 ]
-[s S633 . 1 `uc 1 . 1 0 :1:0 
+[s S635 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TXUIF 1 0 :1:1 
 `uc 1 RXOIF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -311,7 +311,7 @@
 `uc 1 SRMTIF 1 0 :1:7 
 ]
 "23301
-[s S642 . 1 `uc 1 . 1 0 :1:0 
+[s S644 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SPI1TXUIF 1 0 :1:1 
 `uc 1 SPI1RXOIF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -320,8 +320,8 @@
 `uc 1 SPI1TCZIF 1 0 :1:6 
 `uc 1 SPI1SRMTIF 1 0 :1:7 
 ]
-[u S651 . 1 `S633 1 . 1 0 `S642 1 . 1 0 ]
-[v _SPI1INTFbits SPI1INTFbits `VES651  1 e 1 @15642 ]
+[u S653 . 1 `S635 1 . 1 0 `S644 1 . 1 0 ]
+[v _SPI1INTFbits SPI1INTFbits `VES653  1 e 1 @15642 ]
 "23458
 [v _SPI1CLK SPI1CLK `VEuc  1 e 1 @15644 ]
 [s S372 . 1 `uc 1 P5TSEL 1 0 :2:0 
@@ -451,36 +451,40 @@
 "51
 [v _m_milli_sec_time m_milli_sec_time `ul  1 e 4 0 ]
 "54
-[v _int_state int_state `uc  1 e 1 0 ]
-[s S609 . 10 `s 1 position 2 0 `s 1 radius 2 2 `s 1 speed 2 4 `c 1 direction 1 6 `uc 1 green 1 7 `uc 1 red 1 8 `uc 1 blue 1 9 ]
-"76
-[v _Ball_1 Ball_1 `S609  1 e 10 0 ]
+[v _int_state int_state `VEuc  1 e 1 0 ]
+[s S609 . 13 `s 1 position 2 0 `s 1 position_old 2 2 `s 1 radius 2 4 `s 1 speed 2 6 `c 1 decimate 1 8 `c 1 direction 1 9 `uc 1 green 1 10 `uc 1 red 1 11 `uc 1 blue 1 12 ]
+"78
+[v _Ball_1 Ball_1 `S609  1 e 13 0 ]
+"79
+[v _Ball_2 Ball_2 `S609  1 e 13 0 ]
+"80
+[v _Ball_3 Ball_3 `S609  1 e 13 0 ]
 "81 C:\work\ws_leds\mcc_generated_files/dma1.c
 [v _DMA1_SCNTI_InterruptHandler DMA1_SCNTI_InterruptHandler `*.37(v  1 e 2 0 ]
-"78 C:\work\ws_leds\main.c
+"82 C:\work\ws_leds\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"124
-[v main@m_calib_milli_sec m_calib_milli_sec `us  1 a 2 21 ]
-"79
-[v main@ix ix `s  1 a 2 23 ]
-"149
+"151
+[v main@m_calib_milli_sec m_calib_milli_sec `us  1 a 2 7 ]
+"83
+[v main@ix ix `s  1 a 2 9 ]
+"200
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 18 ]
+[v ___wmul@product product `ui  1 a 2 4 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 14 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 16 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
 "157 C:\work\ws_leds\mcc_generated_files/tmr2.c
 [v _TMR2_HasOverflowOccured TMR2_HasOverflowOccured `(a  1 e 1 0 ]
 {
 "160
-[v TMR2_HasOverflowOccured@status status `a  1 a 1 14 ]
+[v TMR2_HasOverflowOccured@status status `a  1 a 1 0 ]
 "167
 } 0
 "50 C:\work\ws_leds\mcc_generated_files/mcc.c
@@ -541,7 +545,7 @@
 "254
 [v _DMA1_SetSCNTIInterruptHandler DMA1_SetSCNTIInterruptHandler `(v  1 e 1 0 ]
 {
-[v DMA1_SetSCNTIInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 14 ]
+[v DMA1_SetSCNTIInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
 "256
 } 0
 "58 C:\work\ws_leds\mcc_generated_files/clc2.c
