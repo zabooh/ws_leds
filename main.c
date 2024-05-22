@@ -67,7 +67,7 @@ typedef struct {
     int16_t position;
     int16_t position_old;
     int16_t radius;
-    int16_t speed;
+    int8_t speed;
     int8_t decimate;
     int8_t direction;
     uint8_t green;
@@ -116,20 +116,20 @@ void main(void) {
     Ball_1.green = 0;
     Ball_1.red = 0;
     Ball_1.radius = 5;
-    Ball_1.speed = 1;
+    Ball_1.speed = 0;
     Ball_1.decimate = 0;
     Ball_1.direction = 1;
 
 
-    Ball_2.position = 50;
-    Ball_2.position_old = 40;
+    Ball_2.position = 40;
+    Ball_2.position_old = 50;
     Ball_2.blue = 00;
     Ball_2.green = 50;
     Ball_2.red = 0;
     Ball_2.radius = 5;
-    Ball_2.speed = 2;
+    Ball_2.speed = 0;
     Ball_2.decimate = 0;
-    Ball_2.direction = 1;
+    Ball_2.direction = -1;
 
 
     Ball_3.position = 100;
@@ -138,15 +138,15 @@ void main(void) {
     Ball_3.green = 00;
     Ball_3.red = 50;
     Ball_3.radius = 5;
-    Ball_3.speed = 3;
+    Ball_3.speed = 1;
     Ball_3.decimate = 0;
     Ball_3.direction = 1;
 
     ix = 1;
     while (1) {
-
+        
         /*=== wait ===*/
-        m_milli_sec_time = 50;
+        m_milli_sec_time = 40;
         do {
             uint16_t m_calib_milli_sec = 443;
             do {
@@ -160,9 +160,9 @@ void main(void) {
 
         if (Ball_1.decimate-- == 0) {
             Ball_1.decimate = Ball_1.speed;
-            Ball_1.position_old += 1;
+            Ball_1.position_old += Ball_1.direction;
             if (Ball_1.position_old >= LED_MAX_CNT) Ball_1.position_old = 0;
-            Ball_1.position += 1;
+            Ball_1.position += Ball_1.direction;
             if (Ball_1.position >= LED_MAX_CNT) Ball_1.position = 0;
         }
 
@@ -171,19 +171,23 @@ void main(void) {
         Stripe.Led[Ball_2.position][L_GREEN] = Ball_2.green;
         if (Ball_2.decimate-- == 0) {
             Ball_2.decimate = Ball_2.speed;
-            Ball_2.position_old += 1;
+            Ball_2.position_old += Ball_2.direction;
+            
             if (Ball_2.position_old >= LED_MAX_CNT) Ball_2.position_old = 0;
-            Ball_2.position += 1;
+            if (Ball_2.position_old < 0) Ball_2.position_old = LED_MAX_CNT;
+            
+            Ball_2.position += Ball_2.direction;
             if (Ball_2.position >= LED_MAX_CNT) Ball_2.position = 0;
+            if (Ball_2.position < 0 ) Ball_2.position = LED_MAX_CNT;            
         }
 
         Stripe.Led[Ball_3.position_old][L_RED] = 0;
         Stripe.Led[Ball_3.position][L_RED] = Ball_3.red;
         if (Ball_3.decimate-- == 0) {
             Ball_3.decimate = Ball_3.speed;
-            Ball_3.position_old += 1;
+            Ball_3.position_old += Ball_3.direction;
             if (Ball_3.position_old >= LED_MAX_CNT) Ball_3.position_old = 0;
-            Ball_3.position += 1;
+            Ball_3.position += Ball_3.direction;
             if (Ball_3.position >= LED_MAX_CNT) Ball_3.position = 0;
         }
         
@@ -199,23 +203,6 @@ void main(void) {
     }
 }
 
-/*
- 
-         Stripe.Led[Ball_1.position_old][L_GREEN] = 0;
-        Stripe.Led[Ball_1.position_old][L_RED] = 0;
-        Stripe.Led[Ball_1.position_old][L_BLUE] = 0;
-        
-        Stripe.Led[Ball_1.position][L_GREEN] = Ball_1.green;
-        Stripe.Led[Ball_1.position][L_RED] = Ball_1.red;
-        Stripe.Led[Ball_1.position][L_BLUE] = Ball_1.blue;
-
-        Ball_1.position_old+=1;
-        if(Ball_1.position_old == LED_MAX_CNT) Ball_1.position_old = 0;
-        
-        Ball_1.position+=1;
-        if(Ball_1.position == LED_MAX_CNT) Ball_1.position = 0;
- 
- */
 /**
 End of File
  */

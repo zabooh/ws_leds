@@ -13,7 +13,7 @@
   8h - Bh		(dist/default/production\ws_leds.production.hex)
   18h - 1Dh		(dist/default/production\ws_leds.production.hex)
   1000h - 1006h		(dist/default/production\ws_leds.production.hex)
-  1008h - 18B1h		(dist/default/production\ws_leds.production.hex)
+  1008h - 18F7h		(dist/default/production\ws_leds.production.hex)
   200000h - 20000Fh		(dist/default/production\ws_leds.production.hex)
   300000h - 300009h		(dist/default/production\ws_leds.production.hex)
  Unused ranges:
@@ -21,7 +21,7 @@
   Ch - 17h
   1Eh - FFFh
   1007h - 1007h
-  18B2h - 1FFFFFh
+  18F8h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -173,7 +173,11 @@
 00001880 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001890 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000018A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000018B0 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+000018B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018F0 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
